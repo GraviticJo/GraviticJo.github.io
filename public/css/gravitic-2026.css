@@ -53,3 +53,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 
 /* Simplified clients section */
 .client-heading{display:none}.work-heading{margin-bottom:32px}.work-heading h2{max-width:760px}.client-showcase{padding-top:0}
+
+/* Preserve Arabic glyphs and dots in the contact headline */
+.contact h2{line-height:1.15;padding:.06em .05em .18em;margin-left:auto;margin-right:auto}[dir=rtl] .contact h2{line-height:1.35;padding-bottom:.22em}
