@@ -6,6 +6,8 @@ Object.assign(translations.en,{clientsEyebrow:"Our clients",clientsTitle:"Great 
 Object.assign(translations.ar,{clientsEyebrow:"عملاؤنا",clientsTitle:"العمل المميز يبدأ<br>بشراكة مميزة.",clientsText:"العلامات التي وثقت بـ GRAVITIC لصناعة حضورها الرقمي.",clientName:"مطعم جابر وكنان",clientType:"مطعم · الأغذية والضيافة",nextClient:"علامتك قد تكون التالية.",startConversation:"ابدأ الحديث معنا ←"});
 Object.assign(translations.en,{weBuild:"We Build.",weBuildText:"Digital products that work.",weDesign:"We Design.",weDesignText:"Identities people remember.",weGrow:"We Grow.",weGrowText:"Brands ready for what’s next."});
 Object.assign(translations.ar,{weBuild:"نَبني.",weBuildText:"منتجات رقمية تعمل بكفاءة.",weDesign:"نُصمّم.",weDesignText:"هويات تبقى في الذاكرة.",weGrow:"نَنمو.",weGrowText:"علامات مستعدة للخطوة القادمة."});
+Object.assign(translations.en,{workTitle:"Brands we’re proud<br>to work with.",workText:"The brands that trusted GRAVITIC to shape their digital presence."});
+Object.assign(translations.ar,{workTitle:"علامات نفخر<br>بالعمل معها.",workText:"علامات وثقت بـ GRAVITIC لصناعة حضورها الرقمي."});
 const root=document.documentElement,langButton=document.getElementById("langButton"),menuButton=document.getElementById("menuButton"),nav=document.getElementById("nav");
 function setLanguage(lang){root.lang=lang;root.dir=lang==="ar"?"rtl":"ltr";langButton.textContent=lang==="ar"?"EN":"AR";document.querySelectorAll("[data-i18n]").forEach(el=>{const value=translations[lang][el.dataset.i18n];if(value!==undefined)el.innerHTML=value});localStorage.setItem("gravitic-language",lang)}
 langButton.addEventListener("click",()=>setLanguage(root.lang==="ar"?"en":"ar"));

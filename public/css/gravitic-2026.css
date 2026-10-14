@@ -50,3 +50,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 .hero-mantra{position:absolute;z-index:4;left:50%;bottom:22px;transform:translateX(-50%);display:flex;align-items:center;gap:15px;color:rgba(255,255,255,.6);font:500 11px Manrope;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}.hero-mantra i{display:block;width:3px;height:3px;border-radius:50%;background:#8d7cff}.hero-mantra span{transition:.25s}.hero-mantra span:hover{color:#fff}[dir=rtl] .hero-mantra{direction:rtl;font-family:"Noto Sans Arabic";letter-spacing:0}
 @media(max-width:600px){.hero-mantra{bottom:16px;gap:10px;font-size:9px}}
 .hero-mantra{position:relative;left:auto;bottom:auto;transform:none;margin-top:18px}@media(max-width:600px){.hero-mantra{bottom:auto;margin-top:14px}}
+
+/* Simplified clients section */
+.client-heading{display:none}.work-heading{margin-bottom:32px}.work-heading h2{max-width:760px}.client-showcase{padding-top:0}
