@@ -68,3 +68,5 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 
 /* Show each client once while keeping the logo row moving */
 .client-logo-item[aria-hidden="true"]{display:none}.client-logo-track{animation:logoFlowUnique 18s linear infinite}@keyframes logoFlowUnique{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}
+
+.restaurant-logo-item .mini-logo{font-family:Manrope,sans-serif;letter-spacing:-.08em}
