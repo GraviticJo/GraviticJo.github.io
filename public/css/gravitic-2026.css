@@ -61,3 +61,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 
 /* TAYYEM Center client logo */
 .tayyem-logo-item .mini-logo{background:#f6f4ed}.tayyem-logo-item .mini-logo img{object-fit:contain;padding:7px}
+
+/* Compact moving client icons */
+.client-logo-marquee{padding:14px 0}.client-logo-track{gap:12px;padding-left:12px}.client-logo-item{width:220px;height:68px;padding:7px 13px 7px 7px;gap:11px;border-radius:13px}.mini-logo{width:52px;height:52px;flex-basis:52px;border-radius:10px}.restaurant-logo-item .mini-logo{font-size:20px}.client-logo-item>div{gap:3px}.client-logo-item strong{font-size:13px}.client-logo-item small{font-size:8px}.tayyem-logo-item .mini-logo img{padding:4px}
+@media(max-width:700px){.client-logo-marquee{padding:11px 0}.client-logo-track{gap:9px;padding-left:9px}.client-logo-item{width:190px;height:60px;padding:6px 11px 6px 6px;gap:9px;border-radius:11px}.mini-logo{width:46px;height:46px;flex-basis:46px;border-radius:9px}.restaurant-logo-item .mini-logo{font-size:17px}.client-logo-item strong{font-size:12px}.client-logo-item small{font-size:7px}}
