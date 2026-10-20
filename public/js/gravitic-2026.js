@@ -13,3 +13,9 @@ const header=document.querySelector(".site-header");window.addEventListener("scr
 const wipe=document.createElement("div");wipe.className="page-wipe";document.body.appendChild(wipe);
 document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener("click",event=>{const target=document.querySelector(link.getAttribute("href"));if(!target)return;event.preventDefault();wipe.classList.remove("leave");wipe.classList.add("show");setTimeout(()=>{target.scrollIntoView({behavior:"auto",block:"start"});wipe.classList.add("leave");wipe.classList.remove("show");setTimeout(()=>wipe.classList.remove("leave"),450)},320)}));
 const sectionLinks=[...document.querySelectorAll('.site-header nav a[href^="#"]')];const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){sectionLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id))}}),{rootMargin:"-35% 0px -55%",threshold:0});sectionLinks.forEach(link=>{const section=document.querySelector(link.getAttribute("href"));if(section)sectionObserver.observe(section)});
+
+const heroSystem=document.querySelector('.hero-system');
+if(heroSystem&&window.matchMedia('(pointer:fine)').matches&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  heroSystem.addEventListener('pointermove',event=>{const box=heroSystem.getBoundingClientRect();const x=(event.clientX-box.left)/box.width-.5;const y=(event.clientY-box.top)/box.height-.5;heroSystem.style.transform=`perspective(900px) rotateX(${-y*4}deg) rotateY(${x*5}deg)`});
+  heroSystem.addEventListener('pointerleave',()=>heroSystem.style.transform='');
+}
