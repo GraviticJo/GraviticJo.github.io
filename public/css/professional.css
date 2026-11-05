@@ -57,7 +57,7 @@ img, video { display: block; max-width: 100%; }
 .primary-button:hover { transform: translateY(-2px); background: var(--plum); }
 .text-link { color: var(--ink); font-size: 13px; font-weight: 600; }
 .text-link b { margin-inline-start: 7px; color: var(--plum); }
-.hero-system { position: relative; min-height: 690px; overflow: hidden; border-radius: 32px; background: url("../images/founder-right-portrait.png?v=approved-2") center top / cover no-repeat; box-shadow: 0 28px 70px rgba(48,39,52,.14); }
+.hero-system { position: relative; min-height: 690px; overflow: hidden; border-radius: 32px; background: url("../images/hero-founder-portrait.png?v=20261105-2") center top / cover no-repeat; box-shadow: 0 28px 70px rgba(48,39,52,.14); }
 .hero-system::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(27,22,30,.73), transparent 48%); }
 .system-top { position: absolute; z-index: 2; top: 22px; left: 24px; right: 24px; display: flex; justify-content: space-between; color: #fff; font-size: 10px; letter-spacing: .1em; }
 .live { display: flex; align-items: center; gap: 7px; }
@@ -167,6 +167,7 @@ img, video { display: block; max-width: 100%; }
 .founder-portrait { position: relative; height: min(52vw,620px); overflow: hidden; background: #ddd7dc; }
 .founder-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .founder-portrait > span { position: absolute; right: 18px; top: 18px; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.85); font-size: 10px; }
+.founder-portrait > span { display: none; }
 .founder-copy { padding: 30px; }
 .founder-copy small { color: var(--plum); font-size: 10px; letter-spacing: .08em; }
 .founder-name { margin: 9px 0 24px; font-size: clamp(31px,3.2vw,48px); font-weight: 600; letter-spacing: -.045em; }
@@ -331,4 +332,117 @@ html[lang="ar"] p[data-i18n] { text-align: left; }
   .hero-copy .eyebrow,.hero-copy h1,.hero-copy>p,.hero-copy .hero-actions { opacity: 1; transform: none; }
   .scroll-progress { display: none; }
   .client-row[aria-hidden="true"] { display: none; }
+}
+
+/* Team portraits: balanced, outward-facing and language-aware. */
+.founders-grid {
+  direction: ltr;
+  gap: clamp(14px, 1.5vw, 22px);
+}
+.founders-grid .founder-story {
+  min-width: 0;
+}
+.founders-grid .founder-portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+}
+.founders-grid .founder-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  transform: scaleX(var(--portrait-flip, 1)) scale(1.001);
+  transform-origin: center;
+}
+.founders-grid .founder-story:hover .founder-portrait img {
+  transform: scaleX(var(--portrait-flip, 1)) scale(1.025);
+}
+.founders-grid .founder-portrait > span {
+  display: grid;
+  top: 18px;
+}
+
+/* English: Waleed (01) on the left, Firas (02) on the right. */
+html:not([data-language="ar"]) .founders-grid .founder-two {
+  grid-column: 1;
+  grid-row: 1;
+  --portrait-flip: 1;
+}
+html:not([data-language="ar"]) .founders-grid .founder-one {
+  grid-column: 2;
+  grid-row: 1;
+  --portrait-flip: -1;
+}
+
+/* Arabic reverses the cards; physical left/right portraits still face outward. */
+html[data-language="ar"] .founders-grid .founder-one {
+  grid-column: 1;
+  grid-row: 1;
+  --portrait-flip: 1;
+}
+html[data-language="ar"] .founders-grid .founder-two {
+  grid-column: 2;
+  grid-row: 1;
+  --portrait-flip: -1;
+}
+html[data-language="ar"] .founders-grid .founder-copy {
+  direction: rtl;
+  text-align: right;
+}
+html[data-language="ar"] .founders-grid .founder-tags {
+  direction: rtl;
+}
+
+/* Number badges sit at the outer edge; the badge itself is never mirrored. */
+.founders-grid .founder-story:nth-child(1) .founder-portrait > span {
+  left: 18px;
+  right: auto;
+}
+.founders-grid .founder-story:nth-child(2) .founder-portrait > span {
+  left: auto;
+  right: 18px;
+}
+html[data-language="ar"] .founders-grid .founder-story:nth-child(1) .founder-portrait > span {
+  left: auto;
+  right: 18px;
+}
+html[data-language="ar"] .founders-grid .founder-story:nth-child(2) .founder-portrait > span {
+  left: 18px;
+  right: auto;
+}
+
+@media (max-width: 820px) {
+  .founders-grid .founder-portrait img {
+    object-position: 50% 16%;
+  }
+  .founder-copy {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .founders-grid .founder-one,
+  .founders-grid .founder-two,
+  html[data-language="ar"] .founders-grid .founder-one,
+  html[data-language="ar"] .founders-grid .founder-two {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  html:not([data-language="ar"]) .founders-grid .founder-two,
+  html[data-language="ar"] .founders-grid .founder-one {
+    order: 1;
+  }
+  html:not([data-language="ar"]) .founders-grid .founder-one,
+  html[data-language="ar"] .founders-grid .founder-two {
+    order: 2;
+  }
+  .founders-grid .founder-portrait {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 4 / 5;
+  }
+  .founders-grid .founder-portrait img {
+    object-position: 50% 14%;
+  }
 }
