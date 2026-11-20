@@ -1,0 +1,9 @@
+{
+  "name": "graivitic-editorial-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/preview.mjs",
+    "check": "node --check public/js/editorial.js && node --check scripts/preview.mjs && node scripts/check-site.mjs"
+  }
+}
